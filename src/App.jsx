@@ -66,7 +66,7 @@ const SectionTitle = ({ eyebrow, children }) => (
 // =========================
 const TOOLS = [
   { name: "Excel", src: "/images.png", alt: "Excel" },
-  { name: "Tableau", src: "/tableau.png", alt: "Tableau" },
+  { name: "Tableau", src: "/tableau.jpg", alt: "Tableau" },
   { name: "Power BI", src: "/powerbi.png", alt: "Power BI" },
   { name: "SQL", src: "/sql.png", alt: "SQL" },
   { name: "Python", src: "/python.png", alt: "Python" },
@@ -81,38 +81,58 @@ const CAPABILITIES = [
 ];
 
 const Logo = ({ src, alt }) => (
-  <img
-    src={src}
-    alt={alt}
-    className="h-14 w-14 object-contain"
-    onError={(e) => {
-      e.currentTarget.style.opacity = "0.5";
-      e.currentTarget.alt = `${alt} (image missing)`;
-    }}
-  />
+  <div className="h-20 w-20 flex items-center justify-center">
+    <img
+      src={src}
+      alt={alt}
+      className="max-h-20 max-w-20 object-contain"
+      onError={(e) => {
+        e.currentTarget.style.opacity = "0.5";
+        e.currentTarget.alt = `${alt} (image missing)`;
+      }}
+    />
+  </div>
 );
 
 const ToolsShowcase = () => (
-  <div className="mt-12 text-lg sm:text-xl text-center">
-    <div className="flex flex-wrap justify-center items-center gap-8">
-      {TOOLS.map((t) => (
-        <Logo key={t.name} src={t.src} alt={t.alt || t.name} />
-      ))}
-    </div>
-    <p className="mt-5 text-slate-300 text-lg sm:text-xl">
-      {TOOLS.map((t, i) => (
-        <span key={t.name}>
-          {t.name}
-          {i < TOOLS.length - 1 && <span className="opacity-60"> | </span>}
-        </span>
-      ))}
-    </p>
-    <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 text-slate-300 text-lg sm:text-xl text-left">
-      {CAPABILITIES.map((c) => (
-        <div key={c} className="inline-flex items-start gap-3">
-          <Star className="h-5 w-5 mt-0.5 text-indigo-400" /> {c}
+  <div className="mt-10">
+    <div className="rounded-2xl border border-slate-800 bg-slate-900/70 px-6 py-6 sm:px-8 sm:py-8 shadow-xl">
+
+      {/* Section label */}
+      <div className="flex justify-center mb-6">
+        <div className="inline-flex items-center gap-2 rounded-full bg-indigo-500/10 px-5 py-1.5 text-sm sm:text-base font-semibold uppercase tracking-[0.20em] text-indigo-300">
+          Core Tools
         </div>
-      ))}
+      </div>
+
+      {/* Tool logos */}
+      <div className="flex flex-wrap justify-center items-center gap-6">
+        {TOOLS.map((t) => (
+          <Logo key={t.name} src={t.src} alt={t.alt || t.name} />
+        ))}
+      </div>
+
+      {/* Tool names */}
+      <p className="mt-5 text-center text-slate-200 text-base sm:text-lg">
+        {TOOLS.map((t, i) => (
+          <span key={t.name}>
+            {t.name}
+            {i < TOOLS.length - 1 && <span className="opacity-60"> | </span>}
+          </span>
+        ))}
+      </p>
+
+      {/* Divider */}
+      <div className="mt-6 mb-4 h-px w-full bg-slate-800/80" />
+
+      {/* Capability list */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-slate-200 text-sm sm:text-base">
+        {CAPABILITIES.map((c) => (
+          <div key={c} className="inline-flex items-start gap-3">
+            <Star className="h-5 w-5 mt-0.5 text-indigo-400" /> {c}
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 );
@@ -206,35 +226,25 @@ const Projects = () => {
       tech: ["Power BI", "Python"],
       description:
         "Behaviour-led insights for conversion and retention. K-Means clustering on free-tier users and an explainable churn model; executive dashboard for actions.",
-      bullets: [
-        "Segmented free users to reveal upgrade propensity profiles",
-        "Logistic regression churn model with actionable levers",
-        "Stakeholder-ready dashboard for marketing and product",
-      ],
       imgSrc: "/proj-spotify.png",
       imgAlt: "Spotify analytics dashboard screenshot",
       demoHref:
         "https://github.com/chienhao-wang/spotify_user_analysis/blob/main/Dashboard.pbix",
       codeHref:
-        "https://github.com/chienhao-wang/spotify_user_analysis/blob/main/README.md",
+        "https://github.com/chienhao-wang/spotify_user_analysis/blob/main/Spotify_User_Segmentation_and_Churn_Analysis.ipynb",
     },
     {
       id: "grocery",
-      title: "Grocery Sales — SQL & Tableau Analysis",
+      title: "Grocery Sales Analysis",
       tech: ["SQL", "Tableau"],
       description:
         "End-to-end sales analytics with a star-schema view, ranking & window functions, and a Tableau dashboard for category revenue and weekday trends.",
-      bullets: [
-        "Reusable SQL views powering the BI layer",
-        "Category revenue and weekday trend insights",
-        "Top customers and promotion levers highlighted",
-      ],
       imgSrc: "/proj-grocery.png",
       imgAlt: "Grocery sales Tableau dashboard screenshot",
       demoHref:
         "https://public.tableau.com/app/profile/chien.hao.wang/viz/GrocerySalesDashboard_17609754421160/Dashboard1",
       codeHref:
-        "https://github.com/chienhao-wang/grocery_sales_analysis/blob/main/README.md",
+        "https://github.com/chienhao-wang/grocery_sales_analysis/blob/main/Grocery%20Sales%20Analysis.sql",
     },
   ];
 
@@ -272,7 +282,6 @@ const Projects = () => {
     title,
     tech,
     description,
-    bullets,
     imgSrc,
     imgAlt,
     reverse,
@@ -305,14 +314,9 @@ const Projects = () => {
           <h3 className="text-slate-100 text-xl font-semibold tracking-wide uppercase">
             {title}
           </h3>
-          <p className="mt-2 text-slate-300 text-sm leading-relaxed">
+          <p className="mt-2 text-slate-300 text-base leading-relaxed">
             {description}
           </p>
-          <ul className="mt-3 space-y-1.5 text-sm text-slate-300">
-            {bullets.map((b, i) => (
-              <li key={i}>• {b}</li>
-            ))}
-          </ul>
           <div className="mt-4 flex flex-wrap gap-2">
             {tech.map((t) => (
               <Pill key={t}>{t}</Pill>
