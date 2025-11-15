@@ -246,6 +246,39 @@ const Projects = () => {
       codeHref:
         "https://github.com/chienhao-wang/grocery_sales_analysis/blob/main/Grocery%20Sales%20Analysis.sql",
     },
+    {
+      id: "marketing",
+      title: "Digital Marketing Analysis",
+      tech: ["Tableau"],
+      description:
+        "Designed a Tableau dashboard to evaluate marketing campaign performance through conversion funnel analysis and ROI assessment, providing clear insight into campaign effectiveness.",
+      imgSrc: "/proj-marketing.png",
+      imgAlt: "Digital Marketing Tableau dashboard screenshot",
+      demoHref:
+        "https://public.tableau.com/app/profile/chien.hao.wang/viz/DigitalMarketingDashboard_17631234108040/Dashboard1",
+    },
+    {
+      id: "fashion",
+      title: "Fashion Inventory Report",
+      tech: ["Excel"],
+      description:
+        "Leveraged Excel to investigate fashion brands’ inventory, return patterns, and customer ratings, and designed a comprehensive inventory dashboard for operational insight.",
+      imgSrc: "/proj-fashion.png",
+      imgAlt: "Fashion Report dashboard screenshot",
+      demoHref:
+        "https://github.com/chienhao-wang/fashion-inventory/blob/main/Fashion%20Inventory%20Report.xlsx",
+    },
+    {
+      id: "footfall",
+      title: "York Footfall Analysis",
+      tech: ["R"],
+      description:
+        "A data-driven assessment of York’s footfall patterns to identify the most strategic location for maximising market vendor visibility and customer reach.",
+      imgSrc: "/proj-footfall.png",
+      imgAlt: "Footfall Analysis screenshot",
+      codeHref:
+        "https://github.com/chienhao-wang/york-footfall-analysis/blob/main/York%20Footfall%20Analysis.Rmd",
+    },
   ];
 
   const derived = Array.from(new Set(projects.flatMap((p) => p.tech.map((t) => t.trim()))));
@@ -324,22 +357,29 @@ const Projects = () => {
           </div>
         </div>
         <div className="mt-5 flex gap-3">
-          <a
-            href={demoHref}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg bg-indigo-500 text-slate-900 px-3 py-2 text-sm font-medium hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-300"
-          >
-            <ExternalLink className="h-4 w-4" /> View dashboard
-          </a>
-          <a
-            href={codeHref}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg bg-emerald-500 text-slate-900 px-3 py-2 text-sm font-medium hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-300"
-          >
-            <Github className="h-4 w-4" /> View code
-          </a>
+          {/* Always show dashboard button if demoHref exists */}
+          {demoHref && (
+            <a
+              href={demoHref}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg bg-indigo-500 text-slate-900 px-3 py-2 text-sm font-medium hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-300"
+            >
+              <ExternalLink className="h-4 w-4" /> View dashboard
+            </a>
+          )}
+
+          {/* Only show code button when codeHref exists */}
+          {codeHref && (
+            <a
+              href={codeHref}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg bg-emerald-500 text-slate-900 px-3 py-2 text-sm font-medium hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-300"
+            >
+              <Github className="h-4 w-4" /> View code
+            </a>
+          )}
         </div>
       </div>
     </div>
