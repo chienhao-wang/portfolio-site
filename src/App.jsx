@@ -208,7 +208,7 @@ const About = () => (
   <Container id="about">
     <SectionTitle eyebrow="About">Who I am</SectionTitle>
     <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-      MSc Business Analytics graduate with hands-on experience transforming data into actionable insights using Python, SQL, Power BI, and Excel. Skilled in machine learning, statistical techniques, and analytical methods including root cause, segmentation, and trend analysis to solve problems across the public and ESG sectors. Built dashboards and data solutions that support strategic decisions and enhance business processes through storytelling and cross-functional collaboration.
+      I’m a data analyst who enjoys turning messy data into clear insights that actually help people make better decisions. With experience across Python, SQL, Tableau, Power BI, and Excel, I’ve worked on everything from machine learning models to practical dashboards that simplify complex problems. I’m especially interested in how data can improve processes in public and ESG-related organisations, and I enjoy collaborating with teams to create solutions that are both insightful and easy to use.
     </p>
     <ToolsShowcase />
   </Container>
@@ -278,6 +278,17 @@ const Projects = () => {
       imgAlt: "Footfall Analysis screenshot",
       codeHref:
         "https://github.com/chienhao-wang/york-footfall-analysis/blob/main/York%20Footfall%20Analysis.Rmd",
+    },
+    {
+      id: "ctr prediction",
+      title: "Ad Click Prediction",
+      tech: ["Python", "SQL"],
+      description:
+        "Created a predictive CTR model that identifies the top 20% high-value users, improving click capture by 1.3× and reducing wasted digital marketing spend.",
+      imgSrc: "/proj-ctr prediction.png",
+      imgAlt: "CTR Prediction Model screenshot",
+      codeHref:
+        "https://github.com/chienhao-wang/ad-click-prediction/blob/main/Ad%20Click%20Prediction.ipynb",
     },
   ];
 
