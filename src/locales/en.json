@@ -1,0 +1,97 @@
+{
+  "name": "Chien-Hao Wang",
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "certificates": "Certificates",
+    "contact": "Contact"
+  },
+  "certificates": {
+    "eyebrow": "Certificates",
+    "title": "Professional Certifications",
+
+    "powerbiTitle": "Microsoft Certified: Power BI Data Analyst Associate",
+    "powerbiCredentialIdLabel": "Credential ID",
+    "powerbiCredentialId": "CA675F58F2469025",
+    "powerbiLinkLabel": "Certificate link",
+    "viewCredential": "View credential",
+
+    "gaTitle": "Google Analytics Certification",
+    "gaCredentialIdLabel": "Credential ID",
+    "gaCredentialId": "149300101",
+    "gaLinkLabel": "Certificate link"
+  },
+  "lang": {
+    "en": "EN",
+    "zh": "中文"
+  },
+  "hero": {
+    "role": "Data Analyst",
+    "badges": {
+      "evidence": "Evidence-led insights",
+      "dashboards": "Dashboards & storytelling",
+      "sql": "Data modelling & SQL"
+    },
+    "industries": {
+      "environmental": "Environmental",
+      "finance": "Finance",
+      "public": "Public Organisation"
+    }
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "Who I am",
+    "body": "I’m a data analyst who enjoys turning messy data into clear insights that actually help people make better decisions. With experience across Python, SQL, Tableau, Power BI, and Excel, I’ve worked on everything from machine learning models to practical dashboards that simplify complex problems. I’m especially interested in how data can improve processes in public and ESG-related organisations, and I enjoy collaborating with teams to create solutions that are both insightful and easy to use."
+  },
+  "coreTools": "Core Tools",
+  "capabilities": [
+    "Data visualisation",
+    "Team collaboration & communication",
+    "Business analytics",
+    "Stakeholder engagement"
+  ],
+  "sections": {
+    "projects": {
+      "eyebrow": "Projects",
+      "title": "Featured Projects"
+    },
+    "contact": {
+      "eyebrow": "Contact",
+      "title": "Get in touch"
+    }
+  },
+  "buttons": {
+    "viewDashboard": "View dashboard",
+    "viewCode": "View code",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "tableauPublic": "Tableau Public"
+  },
+  "projectsData": {
+    "spotify": {
+      "title": "Spotify User Segmentation & Churn Analysis",
+      "description": "Behaviour-led insights for conversion and retention. K-Means clustering on free-tier users and an explainable churn model; executive dashboard for actions."
+    },
+    "grocery": {
+      "title": "Grocery Sales Analysis",
+      "description": "End-to-end sales analytics with a star-schema view, ranking & window functions, and a Tableau dashboard for category revenue and weekday trends."
+    },
+    "marketing": {
+      "title": "Digital Marketing Analysis",
+      "description": "Designed a Tableau dashboard to evaluate marketing campaign performance through conversion funnel analysis and ROI assessment, providing clear insight into campaign effectiveness."
+    },
+    "fashion": {
+      "title": "Fashion Inventory Report",
+      "description": "Leveraged Excel to investigate fashion brands’ inventory, return patterns, and customer ratings, and designed a comprehensive inventory dashboard for operational insight."
+    },
+    "footfall": {
+      "title": "York Footfall Analysis",
+      "description": "A data-driven assessment of York’s footfall patterns to identify the most strategic location for maximising market vendor visibility and customer reach."
+    },
+    "ctrPrediction": {
+      "title": "Ad Click Prediction",
+      "description": "Created a predictive CTR model that identifies the top 20% high-value users, improving click capture by 1.3× and reducing wasted digital marketing spend."
+    }
+  }
+}

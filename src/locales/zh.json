@@ -1,0 +1,97 @@
+{
+  "name": "王健豪",
+  "nav": {
+    "about": "關於我",
+    "projects": "專案",
+    "certificates": "證照",
+    "contact": "聯絡"
+  },
+  "certificates": {
+    "eyebrow": "CERTIFICATES",
+    "title": "專業證照",
+
+    "powerbiTitle": "Microsoft Certified: Power BI Data Analyst Associate (微軟認證：Power BI 數據分析師助理)",
+    "powerbiCredentialIdLabel": "證書編號",
+    "powerbiCredentialId": "CA675F58F2469025",
+    "powerbiLinkLabel": "證書連結",
+    "viewCredential": "檢視證書",
+
+    "gaTitle": "Google Analytics Certification",
+    "gaCredentialIdLabel": "證書編號",
+    "gaCredentialId": "149300101",
+    "gaLinkLabel": "證書連結"
+  },
+  "lang": {
+    "en": "EN",
+    "zh": "中文"
+  },
+  "hero": {
+    "role": "資料分析師",
+    "badges": {
+      "evidence": "以數據為依據的洞察",
+      "dashboards": "儀表板與故事化呈現",
+      "sql": "數據建模與 SQL"
+    },
+    "industries": {
+      "environmental": "環境與永續",
+      "finance": "金融與投資",
+      "public": "公共組織與政策"
+    }
+  },
+  "about": {
+    "eyebrow": "關於我",
+    "title": "我是誰",
+    "body": "我是一名資料分析師，擅長將零散複雜的資料轉化為清楚、有結構且能協助決策的洞察。熟悉 Python、SQL、Tableau、Power BI 與 Excel，過去曾參與機器學習模型建立、儀表板設計與商業分析等工作，協助簡化決策流程並凸顯關鍵指標。我特別關注資料在公共部門與 ESG／永續領域中的應用，也喜歡與不同利害關係人合作，共同打造既實用又好理解的數據解決方案。"
+  },
+  "coreTools": "核心工具",
+  "capabilities": [
+    "資料視覺化與儀表板設計",
+    "跨部門協作與溝通",
+    "商業分析與績效追蹤",
+    "利害關係人溝通與簡報"
+  ],
+  "sections": {
+    "projects": {
+      "eyebrow": "作品專案",
+      "title": "精選作品"
+    },
+    "contact": {
+      "eyebrow": "聯絡方式",
+      "title": "歡迎與我聯絡"
+    }
+  },
+  "buttons": {
+    "viewDashboard": "查看儀表板",
+    "viewCode": "查看程式碼",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "tableauPublic": "Tableau Public"
+  },
+  "projectsData": {
+    "spotify": {
+      "title": "Spotify 用戶分群與流失預測分析",
+      "description": "以用戶行為為核心，針對免費用戶進行分群並建立流失預測模型，協助行銷團隊設計轉換與留存策略，並透過管理儀表板呈現重點洞察。"
+    },
+    "grocery": {
+      "title": "雜貨零售銷售分析",
+      "description": "建立類星型資料模型並撰寫 SQL 基本查詢語法和高級窗口函數，分析品類營收貢獻與平日／週末銷售趨勢，並以 Tableau 儀表板呈現。"
+    },
+    "marketing": {
+      "title": "數位行銷活動成效儀表板",
+      "description": "運用 Tableau 建立行銷活動儀表板，追蹤曝光數、點擊率、轉換率與投資報酬率，協助比較不同活動策略的成效。"
+    },
+    "fashion": {
+      "title": "時尚品牌庫存與退貨分析報表",
+      "description": "以 Excel 分析各品牌庫存水位、退貨數量與原因及顧客評分，並設計庫存儀表板協助辨識滯銷品與高退貨風險品項。"
+    },
+    "footfall": {
+      "title": "約克市人潮熱點分析",
+      "description": "透過人流數據分析約克市(York)不同地點的人潮分布與變化，找出最適合設立攤位與提升曝光度的關鍵位置。"
+    },
+    "ctrPrediction": {
+      "title": "線上廣告點擊率預測模型",
+      "description": "建立 CTR 預測模型，鎖定前 20% 高價值用戶，將點擊捕捉效率提升約 1.3 倍，並降低不必要的廣告花費。"
+    }
+  }
+}
