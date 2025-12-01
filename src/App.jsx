@@ -4,7 +4,6 @@ import {
   Mail,
   Linkedin,
   Github,
-  BarChart3,
   Database,
   Code2,
   Table as TableIcon,
@@ -16,7 +15,9 @@ import {
   PoundSterling,
   Landmark,
   Star,
+  BarChart3,
 } from "lucide-react";
+
 
 // =========================
 // Assets & Helpers
@@ -24,10 +25,10 @@ import {
 const PROFILE_SRC = "/headshot.jpg"; // put in /public
 const FALLBACK_AVATAR = `data:image/svg+xml;utf8,${encodeURIComponent(`
   <svg xmlns='http://www.w3.org/2000/svg' width='256' height='256'>
-    <rect width='100%' height='100%' fill='#0f172a'/>
-    <circle cx='128' cy='96' r='44' fill='#334155'/>
-    <rect x='64' y='156' width='128' height='64' rx='32' fill='#334155'/>
-    <text x='128' y='112' text-anchor='middle' font-family='Inter, system-ui, -apple-system, Segoe UI, Roboto' font-size='36' fill='#e2e8f0'>CW</text>
+    <rect width='100%' height='100%' fill='#EFE9E3'/>
+    <circle cx='128' cy='96' r='44' fill='#D9CFC7'/>
+    <rect x='64' y='156' width='128' height='64' rx='32' fill='#D9CFC7'/>
+    <text x='128' y='112' text-anchor='middle' font-family='Inter, system-ui, -apple-system, Segoe UI, Roboto' font-size='36' fill='#6B5B4A'>CW</text>
   </svg>
 `)}`;
 
@@ -35,19 +36,46 @@ const FALLBACK_AVATAR = `data:image/svg+xml;utf8,${encodeURIComponent(`
 // Primitives
 // =========================
 const Container = ({ id, children }) => (
-  <section id={id} className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+  <section
+    id={id}
+    className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16"
+  >
     {children}
   </section>
 );
 
 const Badge = ({ children }) => (
-  <span className="inline-flex items-center gap-2 rounded-full border border-indigo-500/70 bg-indigo-700/40 text-indigo-100 px-3 py-1 text-sm shadow hover:bg-indigo-600/60 transition-colors duration-200">
+  <span className="inline-flex items-center gap-2 rounded-full border border-[#C9B59C] bg-[#C9B59C] px-3 py-1 text-sm font-medium text-white shadow-sm hover:bg-[#B49E87] transition-colors duration-200">
     {children}
   </span>
 );
 
+// New Badges with subtle colour difference
+const BadgePrimary = ({ children }) => (
+  <span
+    className="inline-flex items-center gap-2 rounded-full 
+    bg-[#C9B59C] text-white 
+    border border-[#C9B59C]
+    px-3 py-1 text-sm font-medium shadow-sm"
+  >
+    {children}
+  </span>
+);
+
+const BadgeSecondary = ({ children }) => (
+  <span
+    className="inline-flex items-center gap-2 rounded-full 
+    bg-[#D9CFC7] text-[#6B5B4A]
+    border border-[#C9B59C] 
+    px-3 py-1 text-sm font-medium shadow-sm"
+  >
+    {children}
+  </span>
+);
+
+
 const Pill = ({ children }) => (
-  <span className="inline-flex items-center rounded-full bg-slate-800/80 px-2.5 py-1 text-xs border border-slate-700/60 text-slate-200">
+  <span className="inline-flex items-center rounded-full bg-[#F9F8F6] px-2.5 py-1 text-xs border border-[#C9B59C] text-[#6B5B4A]">
     {children}
   </span>
 );
@@ -55,9 +83,13 @@ const Pill = ({ children }) => (
 const SectionTitle = ({ eyebrow, children }) => (
   <div className="mb-10">
     {eyebrow && (
-      <div className="mb-2 text-xs uppercase tracking-[0.18em] text-slate-400">{eyebrow}</div>
+      <div className="mb-2 text-xs uppercase tracking-[0.18em] text-[#A4937A]">
+        {eyebrow}
+      </div>
     )}
-    <h2 className="text-xl sm:text-2xl font-semibold text-slate-100">{children}</h2>
+    <h2 className="text-xl sm:text-2xl font-semibold text-[#6B5B4A]">
+      {children}
+    </h2>
   </div>
 );
 
@@ -96,11 +128,10 @@ const Logo = ({ src, alt }) => (
 
 const ToolsShowcase = () => (
   <div className="mt-10">
-    <div className="rounded-2xl border border-slate-800 bg-slate-900/70 px-6 py-6 sm:px-8 sm:py-8 shadow-xl">
-
+    <div className="rounded-2xl border border-[#C9B59C] bg-[#F9F8F6] px-6 py-6 sm:px-8 sm:py-8 shadow-lg">
       {/* Section label */}
       <div className="flex justify-center mb-6">
-        <div className="inline-flex items-center gap-2 rounded-full bg-indigo-500/10 px-5 py-1.5 text-sm sm:text-base font-semibold uppercase tracking-[0.20em] text-indigo-300">
+        <div className="inline-flex items-center gap-2 rounded-full bg-[#D9CFC7] px-5 py-1.5 text-sm sm:text-base font-semibold uppercase tracking-[0.20em] text-[#6B5B4A]">
           Core Tools
         </div>
       </div>
@@ -113,23 +144,25 @@ const ToolsShowcase = () => (
       </div>
 
       {/* Tool names */}
-      <p className="mt-5 text-center text-slate-200 text-base sm:text-lg">
+      <p className="mt-5 text-center text-[#6B5B4A] text-base sm:text-lg">
         {TOOLS.map((t, i) => (
           <span key={t.name}>
             {t.name}
-            {i < TOOLS.length - 1 && <span className="opacity-60"> | </span>}
+            {i < TOOLS.length - 1 && (
+              <span className="opacity-60"> | </span>
+            )}
           </span>
         ))}
       </p>
 
       {/* Divider */}
-      <div className="mt-6 mb-4 h-px w-full bg-slate-800/80" />
+      <div className="mt-6 mb-4 h-px w-full bg-[#D9CFC7]" />
 
       {/* Capability list */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-slate-200 text-sm sm:text-base">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[#6B5B4A] text-sm sm:text-base">
         {CAPABILITIES.map((c) => (
           <div key={c} className="inline-flex items-start gap-3">
-            <Star className="h-5 w-5 mt-0.5 text-indigo-400" /> {c}
+            <Star className="h-5 w-5 mt-0.5 text-[#C9B59C]" /> {c}
           </div>
         ))}
       </div>
@@ -146,7 +179,7 @@ const Hero = () => (
       <motion.img
         src={PROFILE_SRC}
         alt="Profile of Chien-Hao Wang"
-        className="w-36 h-36 rounded-full object-cover border-4 border-indigo-500 shadow-lg mx-auto md:mx-0"
+        className="w-36 h-36 rounded-full object-cover border-4 border-[#C9B59C] shadow-md mx-auto md:mx-0"
         onError={(e) => {
           e.currentTarget.src = FALLBACK_AVATAR;
         }}
@@ -160,7 +193,7 @@ const Hero = () => (
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-4xl sm:text-5xl font-bold tracking-tight text-slate-100"
+          className="text-4xl sm:text-5xl font-bold tracking-tight text-[#6B5B4A]"
         >
           Chien-Hao Wang
         </motion.h1>
@@ -169,34 +202,36 @@ const Hero = () => (
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.05 }}
-          className="text-lg text-slate-300"
+          className="text-lg text-[#8B7965]"
         >
           Data Analyst
         </motion.p>
 
-        {/* Skills row + Industries row */}
+        {/* Skills row (Primary badges) */}
         <div className="flex flex-col gap-3 items-center md:items-start">
           <div className="flex flex-wrap justify-center md:justify-start items-center gap-3">
-            <Badge>
+            <BadgePrimary>
               <Brain className="h-4 w-4" /> Evidence-led insights
-            </Badge>
-            <Badge>
+            </BadgePrimary>
+            <BadgePrimary>
               <Layout className="h-4 w-4" /> Dashboards & storytelling
-            </Badge>
-            <Badge>
+            </BadgePrimary>
+            <BadgePrimary>
               <Database className="h-4 w-4" /> Data modelling & SQL
-            </Badge>
+            </BadgePrimary>
           </div>
+
+          {/* Industries row (Secondary badges) */}
           <div className="flex flex-wrap justify-center md:justify-start items-center gap-3">
-            <Badge>
-              <Leaf className="h-4 w-4 text-green-300" /> Environmental
-            </Badge>
-            <Badge>
-              <PoundSterling className="h-4 w-4 text-yellow-300" /> Finance
-            </Badge>
-            <Badge>
-              <Landmark className="h-4 w-4 text-blue-300" /> Public Organisation
-            </Badge>
+            <BadgeSecondary>
+              <Leaf className="h-4 w-4" /> Environmental
+            </BadgeSecondary>
+            <BadgeSecondary>
+              <PoundSterling className="h-4 w-4" /> Finance
+            </BadgeSecondary>
+            <BadgeSecondary>
+              <Landmark className="h-4 w-4" /> Public Organisation
+            </BadgeSecondary>
           </div>
         </div>
       </div>
@@ -207,14 +242,108 @@ const Hero = () => (
 const About = () => (
   <Container id="about">
     <SectionTitle eyebrow="About">Who I am</SectionTitle>
-    <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
+    <p className="text-base sm:text-lg leading-relaxed text-[#8B7965]">
       I’m a data analyst who enjoys turning messy data into clear insights that actually help people make better decisions. With experience across Python, SQL, Tableau, Power BI, and Excel, I’ve worked on everything from machine learning models to practical dashboards that simplify complex problems. I’m especially interested in how data can improve processes in public and ESG-related organisations, and I enjoy collaborating with teams to create solutions that are both insightful and easy to use.
     </p>
     <ToolsShowcase />
   </Container>
 );
 
-export { Hero, About, Container, Pill, SectionTitle };
+// =========================
+// Certificates Section
+// =========================
+const Certificates = () => (
+  <Container id="certificates">
+    <SectionTitle eyebrow="Certificates">Professional Certifications</SectionTitle>
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      {/* Power BI Certificate */}
+      <div className="rounded-2xl border border-[#C9B59C] bg-[#F9F8F6] px-5 py-5 shadow-lg flex gap-4">
+        {/* image */}
+        <div className="w-32 h-32 rounded-lg overflow-hidden bg-white flex items-center justify-center flex-shrink-0 border border-[#E0D4C6]">
+          <img
+            src="/pl300.png"   
+            alt="Power BI Data Analyst Associate certificate"
+            className="w-full h-full object-contain"
+          />
+        </div>
+
+        {/* Text and info */}
+        <div className="flex-1">
+          <h3 className="font-semibold text-lg text-[#6B5B4A]">
+            Microsoft Certified: Power BI Data Analyst Associate
+          </h3>
+
+          <dl className="mt-3 space-y-1 text-sm text-[#8B7965]">
+            <div className="flex gap-2">
+              <dt className="font-medium w-28">Credential ID</dt>
+              <dd className="flex-1">
+                CA675F58F2469025
+              </dd>
+            </div>
+            <div className="flex gap-2 items-baseline">
+              <dt className="font-medium w-28">Certificate link</dt>
+              <dd className="flex-1 truncate">
+                <a
+                  href="https://learn.microsoft.com/api/credentials/share/en-gb/ChienhaoWang-3986/CA675F58F2469025?sharingId=8DA85ABCA378D079" 
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline underline-offset-2 decoration-[#C9B59C] hover:text-[#6B5B4A]"
+                >
+                  View credential
+                </a>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      {/* Google Analytics Certificate */}
+      <div className="rounded-2xl border border-[#C9B59C] bg-[#F9F8F6] px-5 py-5 shadow-lg flex gap-4">
+        {/* image */}
+        <div className="w-32 h-32 rounded-lg overflow-hidden bg-white flex items-center justify-center flex-shrink-0 border border-[#E0D4C6]">
+          <img
+            src="/ga.png"   
+            alt="Google Analytics certificate"
+            className="w-full h-full object-contain"
+          />
+        </div>
+
+        {/* Text and info */}
+        <div className="flex-1">
+          <h3 className="font-semibold text-lg text-[#6B5B4A]">
+            Google Analytics Certification
+          </h3>
+
+          <dl className="mt-3 space-y-1 text-sm text-[#8B7965]">
+            <div className="flex gap-2">
+              <dt className="font-medium w-28">Credential ID</dt>
+              <dd className="flex-1">
+                149300101
+              </dd>
+            </div>
+            <div className="flex gap-2 items-baseline">
+              <dt className="font-medium w-28">Certificate link</dt>
+              <dd className="flex-1 truncate">
+                <a
+                  href="https://skillshop.credential.net/5429cc7b-0d3b-4ce7-a02f-67849c9c27de" 
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline underline-offset-2 decoration-[#C9B59C] hover:text-[#6B5B4A]"
+                >
+                  View credential
+                </a>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </Container>
+);
+
+export { Hero, About, Certificates, Container, Pill, SectionTitle };
+
 // =========================
 // Projects Section with Multi-select Filter
 // =========================
@@ -335,11 +464,11 @@ const Projects = () => {
     <div
       className={`flex flex-col ${
         reverse ? "md:flex-row-reverse" : "md:flex-row"
-      } items-stretch gap-8 py-6 border-b border-slate-800/70`}
+      } items-stretch gap-8 py-6 border-b border-[#D9CFC7]`}
     >
       {/* Image */}
       <div className="md:w-1/2">
-        <div className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900">
+        <div className="overflow-hidden rounded-2xl border border-[#C9B59C] bg-[#F9F8F6]">
           <img
             src={imgSrc}
             alt={imgAlt}
@@ -355,10 +484,10 @@ const Projects = () => {
       {/* Text */}
       <div className="md:w-1/2 flex flex-col justify-between">
         <div>
-          <h3 className="text-slate-100 text-xl font-semibold tracking-wide uppercase">
+          <h3 className="text-[#6B5B4A] text-xl font-semibold tracking-wide uppercase">
             {title}
           </h3>
-          <p className="mt-2 text-slate-300 text-base leading-relaxed">
+          <p className="mt-2 text-[#8B7965] text-base leading-relaxed">
             {description}
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
@@ -374,7 +503,7 @@ const Projects = () => {
               href={demoHref}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-indigo-500 text-slate-900 px-3 py-2 text-sm font-medium hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-300"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#C9B59C] text-white px-3 py-2 text-sm font-medium hover:bg-[#B49E87] focus:outline-none focus:ring-2 focus:ring-[#C9B59C]/60"
             >
               <ExternalLink className="h-4 w-4" /> View dashboard
             </a>
@@ -386,7 +515,7 @@ const Projects = () => {
               href={codeHref}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-emerald-500 text-slate-900 px-3 py-2 text-sm font-medium hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-300"
+              className="inline-flex items-center gap-2 rounded-lg border border-[#C9B59C] bg-[#F9F8F6] text-[#6B5B4A] px-3 py-2 text-sm font-medium hover:bg-[#EDE1D5] focus:outline-none focus:ring-2 focus:ring-[#C9B59C]/40"
             >
               <Github className="h-4 w-4" /> View code
             </a>
@@ -404,8 +533,8 @@ const Projects = () => {
       <div className="mb-8 flex flex-wrap items-center gap-2">
         {["All", ...allTags].map((tag) => {
           const activeStyle = isActive(tag)
-            ? "bg-indigo-500 text-slate-900 border-indigo-400"
-            : "bg-slate-900 text-slate-200 border-slate-700 hover:bg-slate-800";
+            ? "bg-[#C9B59C] text-white border-[#C9B59C]"
+            : "bg-transparent text-[#6B5B4A] border-[#C9B59C] hover:bg-[#F9F8F6]";
           return (
             <button
               key={tag}
@@ -428,7 +557,7 @@ const Projects = () => {
       ))}
 
       {filtered.length === 0 && (
-        <div className="text-slate-400 text-sm">
+        <div className="text-[#A4937A] text-sm">
           No projects found for “{selected.join(", ") || "All"}”.
         </div>
       )}
@@ -445,7 +574,7 @@ const Contact = () => (
     <div className="flex flex-wrap gap-3">
       <a
         href="mailto:chienhao.jeff.wang@gmail.com"
-        className="inline-flex items-center gap-2 rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm hover:bg-slate-800"
+        className="inline-flex items-center gap-2 rounded-lg border border-[#C9B59C] bg-[#F9F8F6] px-3 py-2 text-sm text-[#6B5B4A] hover:bg-[#EDE1D5]"
       >
         <Mail className="h-4 w-4" /> Email
       </a>
@@ -453,7 +582,7 @@ const Contact = () => (
         href="https://www.linkedin.com/in/chienhaowang/"
         target="_blank"
         rel="noreferrer"
-        className="inline-flex items-center gap-2 rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm hover:bg-slate-800"
+        className="inline-flex items-center gap-2 rounded-lg border border-[#C9B59C] bg-[#F9F8F6] px-3 py-2 text-sm text-[#6B5B4A] hover:bg-[#EDE1D5]"
       >
         <Linkedin className="h-4 w-4" /> LinkedIn
       </a>
@@ -461,7 +590,7 @@ const Contact = () => (
         href="https://github.com/chienhao-wang"
         target="_blank"
         rel="noreferrer"
-        className="inline-flex items-center gap-2 rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm hover:bg-slate-800"
+        className="inline-flex items-center gap-2 rounded-lg border border-[#C9B59C] bg-[#F9F8F6] px-3 py-2 text-sm text-[#6B5B4A] hover:bg-[#EDE1D5]"
       >
         <Github className="h-4 w-4" /> GitHub
       </a>
@@ -469,7 +598,7 @@ const Contact = () => (
         href="https://public.tableau.com/app/profile/chien.hao.wang/vizzes"
         target="_blank"
         rel="noreferrer"
-        className="inline-flex items-center gap-2 rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm hover:bg-slate-800"
+        className="inline-flex items-center gap-2 rounded-lg border border-[#C9B59C] bg-[#F9F8F6] px-3 py-2 text-sm text-[#6B5B4A] hover:bg-[#EDE1D5]"
       >
         <BarChart3 className="h-4 w-4" /> Tableau Public
       </a>
@@ -481,22 +610,27 @@ const Contact = () => (
 // Main App + Footer
 // =========================
 export default function App() {
+  const year = new Date().getFullYear();
+
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-slate-700/60">
+    <div className="min-h-screen bg-[#EFE9E3] text-[#6B5B4A] selection:bg-[#D9CFC7]">
       {/* Nav */}
-      <div className="sticky top-0 z-50 w-full border-b border-slate-900/80 bg-slate-950/70 backdrop-blur">
+      <div className="sticky top-0 z-50 w-full border-b border-[#D9CFC7] bg-[#F9F8F6]/90 backdrop-blur">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8 py-3">
-          <a href="#" className="font-semibold tracking-tight">
+          <a href="#" className="font-semibold tracking-tight text-[#6B5B4A]">
             Chien-Hao Wang
           </a>
-          <div className="flex items-center gap-5 text-sm text-slate-300">
-            <a className="hover:text-slate-100" href="#about">
+          <div className="flex items-center gap-5 text-sm text-[#8B7965]">
+            <a className="hover:text-[#6B5B4A]" href="#about">
               About
             </a>
-            <a className="hover:text-slate-100" href="#projects">
+            <a className="hover:text-[#6B5B4A]" href="#certificates">
+              Certificates
+            </a>
+            <a className="hover:text-[#6B5B4A]" href="#projects">
               Projects
             </a>
-            <a className="hover:text-slate-100" href="#contact">
+            <a className="hover:text-[#6B5B4A]" href="#contact">
               Contact
             </a>
           </div>
@@ -506,15 +640,31 @@ export default function App() {
       <main>
         <Hero />
         <About />
+        <Certificates /> 
         <Projects />
         <Contact />
       </main>
 
-      <footer className="border-t border-slate-900/80">
+      <footer className="border-t border-[#D9CFC7] bg-[#F9F8F6]">
         <Container>
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-sm text-slate-400">
-            <p>© {new Date().getFullYear()} Chien-Hao Wang. All rights reserved.</p>
-            <p className="opacity-80">Built with Vite + React + Tailwind.</p>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-sm text-[#8B7965]">
+            <div>
+              © {year} Chien-Hao Wang. All rights reserved.
+            </div>
+            <div className="flex flex-wrap gap-3 items-center">
+              <span className="inline-flex items-center gap-1">
+                <Code2 className="h-4 w-4" />
+                Built with React &amp; Tailwind CSS
+              </span>
+              <span className="inline-flex items-center gap-1">
+                <TableIcon className="h-4 w-4" />
+                Analytics portfolio
+              </span>
+              <span className="inline-flex items-center gap-1">
+                <FileSpreadsheet className="h-4 w-4" />
+                Excel · SQL · Python · Tableau
+              </span>
+            </div>
           </div>
         </Container>
       </footer>
