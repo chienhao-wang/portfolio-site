@@ -77,6 +77,10 @@
       "title": "Grocery Sales Analysis",
       "description": "End-to-end sales analytics with a star-schema view, ranking & window functions, and a Tableau dashboard for category revenue and weekday trends."
     },
+     "sales and satisfaction": {
+      "title": "Store Strategy Experimentation",
+      "description": "Designed a controlled A/B testing framework using Python to evaluate the causal impact of a new store strategy on sales and customer satisfaction. Applied Difference-in-Differences analysis and experiment validation checks to support data-driven rollout decisions."
+    },
     "marketing": {
       "title": "Digital Marketing Analysis",
       "description": "Designed a Tableau dashboard to evaluate marketing campaign performance through conversion funnel analysis and ROI assessment, providing clear insight into campaign effectiveness."
