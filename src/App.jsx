@@ -391,6 +391,16 @@ const Projects = () => {
         "https://github.com/chienhao-wang/grocery_sales_analysis/blob/main/Grocery%20Sales%20Analysis.sql"
     },
     {
+      id: "sales and satisfaction",
+      title: t("projectsData.sales and satisfaction.title"),
+      tech: ["Python"],
+      description: t("projectsData.sales and satisfaction.description"),
+      imgSrc: "/proj-ab-testing.png",
+      imgAlt: "Sales Impact Comparison screenshot",
+      codeHref:
+        "https://github.com/chienhao-wang/sales-and-satisfaction-analysis/blob/main/Store%20Strategy%20Experimentation.ipynb"
+    },
+    {
       id: "marketing",
       title: t("projectsData.marketing.title"),
       tech: ["Tableau"],
